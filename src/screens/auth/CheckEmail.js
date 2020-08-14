@@ -20,7 +20,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const Register = (props) => {
+const CheckEmail = (props) => {
   const {signIn} = React.useContext(AuthContext);
   const [buttonStatus, setButtonStatus] = React.useState(false);
   const [showIndicator, setShowIndicator] = React.useState(false);
@@ -97,7 +97,13 @@ const Register = (props) => {
                 source={require('../../assets/images/swift.png')}
                 style={{height: 70}}
               />
-              <Text style={[styles.bigLogin, {marginTop: 10}]}>Sign Up</Text>
+              <Text
+                style={[
+                  styles.bigLogin,
+                  {marginTop: 10, paddingHorizontal: 50, textAlign: 'center'},
+                ]}>
+                Check your Email
+              </Text>
               <Text
                 style={[
                   styles.bigLogin,
@@ -106,29 +112,19 @@ const Register = (props) => {
                     color: '#02034A',
                     opacity: 0.5,
                     fontFamily: 'AirbnbCerealLight',
+                    textAlign: 'center',
                   },
                 ]}>
-                to get started
+                We have sent you a reset password link on your registered email
+                address.
               </Text>
             </View>
-            <View style={styles.inputRow}>
-              <TextInput
-                placeholderTextColor={'#8081A4'}
-                placeholder="Enter Email Address"
-                style={[styles.txtInput, {color: '#000', marginLeft: 20}]}
-                onChangeText={(text) => setEmail(text)}
-                keyboardType="email-address"
-              />
-            </View>
 
-            {errorMsg && (
-              <Text style={[styles.forgotPwd, {color: 'red'}]}>{msg}</Text>
-            )}
             <View style={styles.btmContainer}>
               <TouchableOpacity
                 style={styles.buttonContainer}
-                onPress={() => props.navigation.push('Form')}>
-                <Text style={styles.smallLogin}>Next</Text>
+                onPress={() => props.navigation.push('ResetPassword')}>
+                <Text style={styles.smallLogin}>Reset Password</Text>
                 {showIndicator && (
                   <ActivityIndicator
                     size="small"
@@ -137,24 +133,6 @@ const Register = (props) => {
                   />
                 )}
               </TouchableOpacity>
-              <View
-                style={{
-                  marginTop: 50,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <View style={{flexDirection: 'row', marginVertical: 20}}>
-                  <Text style={styles.forgotPwd}>Already have an account?</Text>
-                  <Text
-                    style={[
-                      styles.createAct,
-                      {color: '#80C050', fontFamily: 'AirbnbCerealBold'},
-                    ]}
-                    onPress={() => props.navigation.push('Login')}>
-                    Sign In?
-                  </Text>
-                </View>
-              </View>
             </View>
           </View>
         </TouchableWithoutFeedback>
@@ -224,4 +202,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Register;
+export default CheckEmail;

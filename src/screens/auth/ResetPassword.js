@@ -20,7 +20,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const Register = (props) => {
+const ResetPassword = (props) => {
   const {signIn} = React.useContext(AuthContext);
   const [buttonStatus, setButtonStatus] = React.useState(false);
   const [showIndicator, setShowIndicator] = React.useState(false);
@@ -97,28 +97,65 @@ const Register = (props) => {
                 source={require('../../assets/images/swift.png')}
                 style={{height: 70}}
               />
-              <Text style={[styles.bigLogin, {marginTop: 10}]}>Sign Up</Text>
-              <Text
-                style={[
-                  styles.bigLogin,
-                  {
-                    fontSize: 18,
-                    color: '#02034A',
-                    opacity: 0.5,
-                    fontFamily: 'AirbnbCerealLight',
-                  },
-                ]}>
-                to get started
+              <Text style={[styles.bigLogin, {marginTop: 10, paddingHorizontal: 50, textAlign: 'center'}]}>
+                Reset Password
               </Text>
             </View>
             <View style={styles.inputRow}>
-              <TextInput
-                placeholderTextColor={'#8081A4'}
-                placeholder="Enter Email Address"
-                style={[styles.txtInput, {color: '#000', marginLeft: 20}]}
-                onChangeText={(text) => setEmail(text)}
-                keyboardType="email-address"
-              />
+              <View style={styles.iconBox}>
+                <Fontisto
+                  onPress={() => setPwdStatus(!pwdStatus)}
+                  name={'locked'}
+                  color={'#64245C'}
+                  style={{
+                    fontSize: 14,
+                  }}
+                />
+              </View>
+              <View
+                style={[
+                  styles.txtInput,
+                  {flexDirection: 'row', alignItems: 'center', marginLeft: 20},
+                ]}>
+                <TextInput
+                  placeholderTextColor={'#8081A4'}
+                  placeholder="Password"
+                  style={[
+                    {flex: 1, color: '#000', fontFamily: 'AirbnbCerealBook'},
+                  ]}
+                  secureTextEntry={pwdStatus}
+                  onChangeText={(text) => setPassword(text)}
+                />
+                <Image source={require('../../assets/images/eye_open.png')} />
+              </View>
+            </View>
+            <View style={styles.inputRow}>
+              <View style={styles.iconBox}>
+                <Fontisto
+                  onPress={() => setPwdStatus(!pwdStatus)}
+                  name={'locked'}
+                  color={'#64245C'}
+                  style={{
+                    fontSize: 14,
+                  }}
+                />
+              </View>
+              <View
+                style={[
+                  styles.txtInput,
+                  {flexDirection: 'row', alignItems: 'center', marginLeft: 20},
+                ]}>
+                <TextInput
+                  placeholderTextColor={'#8081A4'}
+                  placeholder="Password"
+                  style={[
+                    {flex: 1, color: '#000', fontFamily: 'AirbnbCerealBook'},
+                  ]}
+                  secureTextEntry={pwdStatus}
+                  onChangeText={(text) => setPassword(text)}
+                />
+                <Image source={require('../../assets/images/eye_open.png')} />
+              </View>
             </View>
 
             {errorMsg && (
@@ -127,8 +164,8 @@ const Register = (props) => {
             <View style={styles.btmContainer}>
               <TouchableOpacity
                 style={styles.buttonContainer}
-                onPress={() => props.navigation.push('Form')}>
-                <Text style={styles.smallLogin}>Next</Text>
+                onPress={() => authUser()}>
+                <Text style={styles.smallLogin}>Update</Text>
                 {showIndicator && (
                   <ActivityIndicator
                     size="small"
@@ -137,24 +174,6 @@ const Register = (props) => {
                   />
                 )}
               </TouchableOpacity>
-              <View
-                style={{
-                  marginTop: 50,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <View style={{flexDirection: 'row', marginVertical: 20}}>
-                  <Text style={styles.forgotPwd}>Already have an account?</Text>
-                  <Text
-                    style={[
-                      styles.createAct,
-                      {color: '#80C050', fontFamily: 'AirbnbCerealBold'},
-                    ]}
-                    onPress={() => props.navigation.push('Login')}>
-                    Sign In?
-                  </Text>
-                </View>
-              </View>
             </View>
           </View>
         </TouchableWithoutFeedback>
@@ -224,4 +243,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Register;
+export default ResetPassword;
