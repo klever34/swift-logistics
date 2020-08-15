@@ -377,8 +377,6 @@ const Form = (props) => {
               closeOnPressMask={false}
               height={300}
               customStyles={{
-                mask: { backgroundColor: "red" },
-                container: { elevation: 100 },
                 wrapper: {
                   backgroundColor: 'transparent',
                   borderRadius: 10,

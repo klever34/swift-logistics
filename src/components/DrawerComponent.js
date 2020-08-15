@@ -1,6 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import DrawerContentList from '../components/DrawerContentList';
 
 import Dashboard from '../screens/drawer/dashboard/Dashboard';
 
@@ -12,7 +13,7 @@ const DashboardStack = createStackNavigator();
 const DashboardStackScreen = () => {
   return (
     <DashboardStack.Navigator headerMode="none">
-      <DashboardStack.Screen name="Dashoboard" component={Dashboard} />
+      <DashboardStack.Screen name="Dashboard" component={Dashboard} />
     </DashboardStack.Navigator>
   );
 };
