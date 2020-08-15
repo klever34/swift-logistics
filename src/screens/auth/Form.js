@@ -314,7 +314,7 @@ const Form = (props) => {
                       console.log(data, details);
                     }}
                     query={{
-                      key: 'YOUR API KEY',
+                      key: 'AIzaSyC3ko1LbjiRt8klPzj3xZaJMQnnf42i0VQ',
                       language: 'en',
                     }}
                     autoFocus={false}
