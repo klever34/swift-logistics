@@ -5,37 +5,35 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 // import {connect} from 'react-redux';
 import {colors} from '../constants/index';
 
-const DashboardComponent = (props) => {
-  return (
-    <DrawerItem
-      icon={({color, size}) => (
-        <Image source={require('../assets/images/dash.png')} style={{height: 20, width: 20}} />
-      )}
-      label={({focused, color}) => (
-        <Text
-          style={{
-            color: '#fff',
-            fontFamily: 'AirbnbCerealBold',
-            fontSize: 16,
-          }}>
-          Dashboard
-        </Text>
-      )}
-      onPress={() => {
-        props.nav('Dashboard');
-      }}
-      style={styles.activeMode}
-    />
-  );
-};
+const HistoryComponent = props => {
+    return (
+      <DrawerItem
+        icon={({color, size}) => (
+            <Image source={require('../assets/images/history.png')}  style={{height: 20, width: 20}} />
+
+        )}
+        label={({focused, color}) => (
+          <Text
+            style={{
+              color: colors.todoHeader,
+              fontFamily: 'AirbnbCerealBold',
+              fontSize: 16,
+            }}>
+            History
+          </Text>
+        )}
+        onPress={() => {props.nav('Dashboard')}}
+      />
+    );
+  };
 
 const styles = StyleSheet.create({
-  activeMode: {
-    borderWidth: 0,
+  tourMode: {
+    borderWidth: 3,
     padding: 5,
-    borderColor: '#fff',
-    elevation: 1,
-    backgroundColor: '#80C050',
+    borderColor: 'transparent',
+    elevation: 5,
+    backgroundColor: colors.bgColor,
     shadowColor: 'grey',
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 9,
@@ -43,7 +41,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DashboardComponent;
+export default HistoryComponent;
 
 // const mapStateToProps = state => {
 //   return {

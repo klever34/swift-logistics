@@ -17,6 +17,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* swift_logisticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* swift_logisticsTests.m */; };
 		3ABD6763450841879BFAAC04 /* libPods-swift_logistics-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEA54B0783BC8851C883EA6 /* libPods-swift_logistics-tvOS.a */; };
 		45DF78B2AE63EC10DB21D144 /* libPods-swift_logistics-swift_logisticsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2784944610F86BCDC01BEC86 /* libPods-swift_logistics-swift_logisticsTests.a */; };
+		504BB7CA24E9AC160082432E /* GeoLoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504BB7C924E9AC160082432E /* GeoLoc.swift */; };
 		52095539A913F7DCED9B8138 /* libPods-swift_logistics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E198A10007386E5E915F75 /* libPods-swift_logistics.a */; };
 		73461A7D27C842E58124819A /* AirbnbCerealExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30A66824550846CFB354575F /* AirbnbCerealExtraBold.ttf */; };
 		80220F90FECD9D05EC684E30 /* libPods-swift_logistics-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6874A5894638EC143F9F8CAD /* libPods-swift_logistics-tvOSTests.a */; };
@@ -67,6 +68,8 @@
 		2D02E47B1E0B4A5D006451C7 /* swift_logistics-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift_logistics-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* swift_logistics-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift_logistics-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A66824550846CFB354575F /* AirbnbCerealExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AirbnbCerealExtraBold.ttf; path = ../src/assets/fonts/AirbnbCerealExtraBold.ttf; sourceTree = "<group>"; };
+		504BB7C824E9AC150082432E /* swift_logistics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swift_logistics-Bridging-Header.h"; sourceTree = "<group>"; };
+		504BB7C924E9AC160082432E /* GeoLoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLoc.swift; sourceTree = "<group>"; };
 		5452DA1FB96845BFBD338BC8 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		5E13FD2843434D0A92BC7021 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		5E2F9A242B6140E18C5086A6 /* AirbnbCerealBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AirbnbCerealBold.ttf; path = ../src/assets/fonts/AirbnbCerealBold.ttf; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				504BB7C924E9AC160082432E /* GeoLoc.swift */,
 				13B07FAE1A68108700A75B9A /* swift_logistics */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* swift_logisticsTests */,
@@ -238,6 +242,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				1A2F76175A437A07894197D7 /* Pods */,
 				2622DFE3407E4620A7B048B2 /* Resources */,
+				504BB7C824E9AC150082432E /* swift_logistics-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -351,7 +356,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1160;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -700,6 +705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				504BB7CA24E9AC160082432E /* GeoLoc.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,6 +747,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FE4E47665F4FCA675F0DC722 /* Pods-swift_logistics-swift_logisticsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -764,6 +771,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15D17A07DA113F6D62A943E3 /* Pods-swift_logistics-swift_logisticsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = swift_logisticsTests/Info.plist;
@@ -797,6 +805,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = swift_logistics;
+				SWIFT_OBJC_BRIDGING_HEADER = "swift_logistics-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -819,6 +828,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = swift_logistics;
+				SWIFT_OBJC_BRIDGING_HEADER = "swift_logistics-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

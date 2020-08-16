@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Image, Text} from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 import {Drawer} from 'react-native-paper';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -7,43 +7,86 @@ import {useNavigation} from '@react-navigation/native';
 import {DrawerActions} from '@react-navigation/native';
 // import {connect} from 'react-redux';
 import DashboardComponent from '../components/DashboardComponent';
+import OrderComponent from '../components/OrderComponent';
+import HistoryComponent from '../components/HistoryComponent';
+import PaymentComponent from '../components/PaymentComponent';
+import SupportComponent from '../components/SupportComponent';
+import AboutComponent from '../components/AboutComponent';
 import {colors} from '../constants/index';
+import {AuthContext} from '../../context';
 
 const DrawerContentList = ({props}) => {
   const navigation = useNavigation();
-  // console.log("props.counter")
+  const {signOut} = React.useContext(AuthContext);
+  const logOut = () => {
+    signOut();
+  };
   return (
     <DrawerContentScrollView
       {...props}
-      style={{backgroundColor: colors.primary, flex: 1}}>
+      style={{backgroundColor: '#fff', flex: 1}}>
       <View style={styles.drawerContent}>
         <View>
-          <TouchableWithoutFeedback
-            onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}>
-            <Entypo
-              name={'cross'}
-              size={32}
-              color={colors.textColor}
-              style={{fontSize: 44, paddingHorizontal: 15}}
+          <View style={styles.profile}>
+            <Image
+              source={require('../assets/images/peter.png')}
+              style={{height: 70, width: 70, resizeMode: 'contain'}}
             />
-          </TouchableWithoutFeedback>
+            <View style={{paddingLeft: 10}}>
+              <Text style={styles.name}>Peter</Text>
+              <Text style={styles.edit}>Edit profile</Text>
+            </View>
+          </View>
           <Drawer.Section style={styles.drawerSection}>
             <DashboardComponent nav={navigation.navigate} />
+            <OrderComponent nav={navigation.navigate} />
+            <HistoryComponent nav={navigation.navigate} />
+            <PaymentComponent nav={navigation.navigate} />
+            <SupportComponent nav={navigation.navigate} />
+            <AboutComponent nav={navigation.navigate} />
           </Drawer.Section>
         </View>
-      {/* <Text style={{color: colors.textColor,, textAlign: 'center', marginTop: 40}}>@EDCLearn 2020</Text> */}
+        <TouchableOpacity
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingLeft: 20,
+            marginTop: 40,
+          }}
+          onPress={() => logOut()}>
+          <Image
+            source={require('../assets/images/logout.png')}
+            style={{height: 20, width: 20}}
+          />
+          <Text
+            style={{
+              fontFamily: 'AirbnbCerealMedium',
+              fontSize: 16,
+              color: '#E56C44',
+              paddingHorizontal: 30,
+            }}>
+            Log Out
+          </Text>
+        </TouchableOpacity>
       </View>
     </DrawerContentScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  name: {
+    fontFamily: 'AirbnbCerealBlack',
+    fontSize: 20,
+    paddingVertical: 3,
+  },
+  edit: {
+    fontFamily: 'AirbnbCerealLight',
+    fontSize: 12,
+    paddingVertical: 3,
+  },
   drawerContent: {
     flex: 1,
     marginTop: 20,
-  },
-  userInfoSection: {
-    paddingLeft: 20,
   },
   title: {
     marginTop: 20,
@@ -58,11 +101,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  section: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 15,
-  },
   paragraph: {
     fontWeight: 'bold',
     marginRight: 3,
@@ -70,12 +108,6 @@ const styles = StyleSheet.create({
   drawerSection: {
     marginTop: 15,
     flex: 1,
-  },
-  preference: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 12,
-    paddingHorizontal: 16,
   },
   tourMode: {
     borderWidth: 3,
@@ -89,6 +121,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 9,
     shadowRadius: 2,
     marginVertical: 10,
+  },
+  profile: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 25,
+    borderBottomWidth: 1,
+    borderBottomColor: '#c4c4c4',
+    paddingVertical: 13,
   },
 });
 
