@@ -196,38 +196,49 @@ class Dashboard extends Component {
                 marginLeft: 20,
               },
             ]}>
-            <GooglePlacesAutocomplete
-              placeholder="Where to ?"
-              onPress={(data, details = null) => {
-                console.log(data, details);
-              }}
-              query={{
-                key: 'AIzaSyC3ko1LbjiRt8klPzj3xZaJMQnnf42i0VQ',
-                language: 'en',
-              }}
-              autoFocus={false}
-              returnKeyType={'default'}
-              fetchDetails={true}
-              styles={{
-                textInputContainer: {
-                  backgroundColor: '#fff',
-                  borderTopWidth: 0,
-                  borderBottomWidth: 0,
-                  borderColor: '#fff',
-                },
-                textInput: {
-                  marginLeft: 0,
-                  marginRight: 0,
-                  height: 50,
-                  color: '#5d5d5d',
-                  fontSize: 16,
-                  fontFamily: 'AirbnbCerealMedium',
-                },
-                predefinedPlacesDescription: {
-                  color: '#1faadb',
-                },
-              }}
-            />
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                backgroundColor: '#fff',
+              }}>
+              <Image
+                source={require('../../../assets/images/green.png')}
+                style={{height: 15, width: 15, marginTop: 20, marginLeft: 5}}
+              />
+              <GooglePlacesAutocomplete
+                placeholder="From ?"
+                onPress={(data, details = null) => {
+                  console.log(data, details);
+                }}
+                query={{
+                  key: 'AIzaSyC3ko1LbjiRt8klPzj3xZaJMQnnf42i0VQ',
+                  language: 'en',
+                }}
+                autoFocus={false}
+                returnKeyType={'default'}
+                fetchDetails={true}
+                styles={{
+                  textInputContainer: {
+                    backgroundColor: '#fff',
+                    borderTopWidth: 0,
+                    borderBottomWidth: 0,
+                    borderColor: '#fff',
+                  },
+                  textInput: {
+                    marginLeft: 0,
+                    marginRight: 0,
+                    height: 50,
+                    color: '#5d5d5d',
+                    fontSize: 16,
+                    fontFamily: 'AirbnbCerealMedium',
+                  },
+                  predefinedPlacesDescription: {
+                    color: '#1faadb',
+                  },
+                }}
+              />
+            </View>
           </View>
           <View
             style={[
@@ -244,38 +255,49 @@ class Dashboard extends Component {
                 marginLeft: 20,
               },
             ]}>
-            <GooglePlacesAutocomplete
-              placeholder="Enter destination"
-              onPress={(data, details = null) => {
-                console.log(data, details);
-              }}
-              query={{
-                key: 'AIzaSyC3ko1LbjiRt8klPzj3xZaJMQnnf42i0VQ',
-                language: 'en',
-              }}
-              autoFocus={false}
-              returnKeyType={'default'}
-              fetchDetails={true}
-              styles={{
-                textInputContainer: {
-                  backgroundColor: '#fff',
-                  borderTopWidth: 0,
-                  borderBottomWidth: 0,
-                  borderColor: '#fff',
-                },
-                textInput: {
-                  marginLeft: 0,
-                  marginRight: 0,
-                  height: 50,
-                  color: '#5d5d5d',
-                  fontSize: 16,
-                  fontFamily: 'AirbnbCerealMedium',
-                },
-                predefinedPlacesDescription: {
-                  color: '#1faadb',
-                },
-              }}
-            />
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                backgroundColor: '#fff',
+              }}>
+                {/* <Image
+                  source={require('../../../assets/images/green.png')}
+                  style={{height: 15, width: 15, backgroundColor: '#fff', marginTop: 30}}
+                /> */}
+              <GooglePlacesAutocomplete
+                placeholder="Enter destination"
+                onPress={(data, details = null) => {
+                  console.log(data, details);
+                }}
+                query={{
+                  key: 'AIzaSyC3ko1LbjiRt8klPzj3xZaJMQnnf42i0VQ',
+                  language: 'en',
+                }}
+                autoFocus={false}
+                returnKeyType={'default'}
+                fetchDetails={true}
+                styles={{
+                  textInputContainer: {
+                    backgroundColor: '#fff',
+                    borderTopWidth: 0,
+                    borderBottomWidth: 0,
+                    borderColor: '#fff',
+                  },
+                  textInput: {
+                    marginLeft: 0,
+                    marginRight: 0,
+                    height: 50,
+                    color: '#5d5d5d',
+                    fontSize: 16,
+                    fontFamily: 'AirbnbCerealMedium',
+                  },
+                  predefinedPlacesDescription: {
+                    color: '#1faadb',
+                  },
+                }}
+              />
+            </View>
           </View>
           <Provider>
             <RBSheet
@@ -976,6 +998,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: '5%',
     flexDirection: 'row',
+    marginLeft: 10,
   },
   estimateBtn: {
     backgroundColor: '#fff',
