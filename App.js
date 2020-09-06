@@ -12,7 +12,7 @@ import ForgotPassword from './src/screens/auth/ForgotPassword';
 import CheckEmail from './src/screens/auth/CheckEmail';
 import ResetPassword from './src/screens/auth/ResetPassword';
 import Form from './src/screens/auth/Form';
-
+import axios from "axios";
 import WalkThrough from './src/screens/onboarding/Walkthrough';
 import {connect} from 'react-redux';
 // import { showTourModal, tourCount } from './src/actions/tour';
@@ -112,6 +112,30 @@ const App = () => {
   const [splash, setSplash] = React.useState(false);
   const [chosenTheme, setChosenTheme] = React.useState(0);
 
+  React.useEffect(() => {
+    async function testWeb(){
+      try {
+        const response = await axios.get(
+          `https://dragonflyapi.nationaluptake.com/api/auth/verifyAccount?email=alagbaladamilola@gmail.com`,
+        );
+        console.log("from App js");
+        console.log(response.data);
+        const res = await axios.post(
+          `https://dragonflyapi.nationaluptake.com/api/auth/login`,{
+            email: "alagbaladamilola@gmail.com",
+            password: "password",
+            
+            rememberMe: true,
+          },
+        );
+        console.log("from App js");
+        console.log(res.data);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    testWeb()
+  })
   React.useEffect(() => {
     async function checkUserStatus() {
       setIsLoading(true);
